@@ -1,0 +1,62 @@
+{
+    "scenarios": [
+        {
+            "name": "Bart with Simple Pointer Head",
+            "model_class": "ordering",
+            "model_name": "models/bart-base-simple-best-wikipedia",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart with Deep Pointer Head",
+            "model_class": "ordering deep",
+            "model_name": "models/bart-base-deep-best-wikipedia",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart with Multi Pointer Head",
+            "model_class": "ordering multi",
+            "model_name": "models/bart-base-multi-best-wikipedia",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        }
+    ],
+    "dataset": {
+        "dataset_name": "dataset/best_wikipedia_ordering.py",
+        "split": "test",
+        "x_column_name": ["shuffled_sentences"],
+        "y_column_name": "label"
+    },
+    "metrics": [
+        {
+            "metric_name": "evaluation/metrics/kendalltau.py",
+            "values": ["kendalltau"]
+        },
+        {
+            "metric_name": "evaluation/metrics/pmr.py",
+            "values": ["pmr"]
+        }
+    ]
+}

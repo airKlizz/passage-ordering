@@ -1,0 +1,29 @@
+{
+    "output_dir": "models/baseline-cnn-dailymail",
+    "do_train": true,
+    "do_eval": true,
+    "evaluate_during_training": true,
+  
+    "per_device_train_batch_size": 64,
+    "per_device_eval_batch_size": 64,
+    "gradient_accumulation_steps": 1,
+  
+    "learning_rate": 1e-4,
+    "num_train_epochs": 10,
+    "logging_steps": 500,
+    "eval_steps": 500,
+    "save_steps": 500,
+    "save_total_limit": 3,
+  
+    "model_name_or_path": "",
+    "tokenizer_name": "models/glove_tokenizer/cnn-dailymail",
+    "max_length": 64,
+    "with_title": false,
+    "wandb_project": "SequenceOrderingCNNDM",
+    "wandb_run_name": "baseline cnn_dm",
+
+    "train_file_path": "valid.pt",
+    "valid_file_path": "train.pt",
+
+    "path": "dataset/cnn_dailymail_ordering.py"
+}

@@ -1,0 +1,8 @@
+dataset/manual_wikihow_data/*
+
+*.lock
+
+wandb/*
+
+dataset/cache/*
+__pycache__

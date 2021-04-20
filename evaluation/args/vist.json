@@ -1,0 +1,105 @@
+{
+    "scenarios": [
+        {
+            "name": "Bart Simple",
+            "model_class": "ordering",
+            "model_name": "models/bart-base-simple-vist",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart Deep",
+            "model_class": "ordering deep",
+            "model_name": "models/bart-base-deep-vist",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart Multi",
+            "model_class": "ordering multi",
+            "model_name": "models/bart-base-multi-vist",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart Simple based on Arxiv",
+            "model_class": "ordering",
+            "model_name": "models/bart-base-simple-vist-based-on-arxiv",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart Deep based on Arxiv",
+            "model_class": "ordering deep",
+            "model_name": "models/bart-base-deep-vist-based-on-arxiv",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        },
+        {
+            "name": "Bart Multi based on Arxiv",
+            "model_class": "ordering multi",
+            "model_name": "models/bart-base-multi-vist-based-on-arxiv",
+            "tokenizer_name": "facebook/bart-base",
+            "init_kwargs": {
+                "ordering_parameters": {
+                    "num_beams": 1,
+		            "decoder_start_token_ids": [0, 2]
+                }
+            },
+            "batch_size": 16,
+            "device": "cuda"
+        }
+        
+    ],
+    "dataset": {
+        "dataset_name": "dataset/vist_ordering.py",
+        "split": "test",
+        "x_column_name": ["shuffled_sentences"],
+        "y_column_name": "label"
+    },
+    "metrics": [
+        {
+            "metric_name": "evaluation/metrics/kendalltau.py",
+            "values": ["kendalltau"]
+        },
+        {
+            "metric_name": "evaluation/metrics/pmr.py",
+            "values": ["pmr"]
+        }
+    ]
+}
