@@ -1,6 +1,6 @@
 # Ordering Sentences and Paragraphs with Pre-trained Encoder-Decoder Transformers and Pointer Ensembles
 
-Code, models and data for the paper *Ordering Sentences and Paragraphs with Pre-trained Encoder-Decoder Transformers and Pointer Ensembles* under review at NAACL2021.
+Code, models and data for the paper *Ordering Sentences and Paragraphs with Pre-trained Encoder-Decoder Transformers and Pointer Ensembles* under review at DocEng2021.
 
 ## Getting started
 
